@@ -6,5 +6,5 @@ steps:
 
   push_to_registry:
     type: push
-    candidate: ${{build-step}}
+    candidate: ${{build_step}}
     tag: ${{CF_BRANCH}}
