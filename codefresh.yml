@@ -1,0 +1,10 @@
+version: '1.0'
+steps:
+  build_step:
+    type: build
+    image-name: codefresh/docker-service
+
+  push_to_registry:
+    type: push
+    candidate: ${{build-step}}
+    tag: ${{CF_BRANCH}}
