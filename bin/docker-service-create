@@ -17,4 +17,4 @@ fi
 echo "DOCKER_MACHINE_NAME=${DOCKER_MACHINE_NAME} "
 eval $(docker-machine env ${DOCKER_MACHINE_NAME} )
 
-docker-machine env ${DOCKER_MACHINE_NAME} >> ${CF_VOLUME_PATH}/env_vars_to_export
+cf_export DOCKER_HOST DOCKER_CERT_PATH DOCKER_TLS_VERIFY DOCKER_MACHINE_NAME
