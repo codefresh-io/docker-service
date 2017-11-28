@@ -4,3 +4,13 @@ export MACHINE_STORAGE_PATH=${CF_VOLUME_PATH}/.docker/machine
 mkdir -p ${MACHINE_STORAGE_PATH}
 
 docker-machine create $@
+
+if [ $? != 0 ]; then
+  echo "Failed to launch docker service"
+  exit 1
+fi
+
+DOCKER_MACHINE_NAME=$(docker-machine active)
+eval $(docker-machine env ${DOCKER_MACHINE_NAME} )
+
+docker-machine env ${DOCKER_MACHINE_NAME} >> ${CF_VOLUME_PATH}/env_vars_to_export
