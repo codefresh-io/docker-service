@@ -3,4 +3,4 @@
 export MACHINE_STORAGE_PATH=${CF_VOLUME_PATH}/.docker/machine
 mkdir -p ${MACHINE_STORAGE_PATH}
 
-docker-machine delete $@
+docker-machine rm -f $@
