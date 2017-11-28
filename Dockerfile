@@ -8,6 +8,7 @@ RUN apk add curl curl-dev bash --no-cache && \
 
 ADD ./bin /usr/local/bin/
 
+ENV SHELL bash
 ENV MACHINE_STORAGE_PATH /codefresh/volume/.docker/machine
 
 CMD ["sh"]
