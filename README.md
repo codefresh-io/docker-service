@@ -59,3 +59,4 @@ steps:
 
 - DOCKER_MACHINE_NAME
 - Codefresh variables: https://docs.codefresh.io/docs/variables
+- docker-machine drivers envs: https://docs.docker.com/machine/drivers/

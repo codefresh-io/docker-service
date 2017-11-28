@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export MACHINE_STORAGE_PATH=${CF_VOLUME_PATH}/.docker/machine
 mkdir -p ${MACHINE_STORAGE_PATH}
@@ -10,7 +10,11 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-DOCKER_MACHINE_NAME=$(docker-machine active)
+if [[ -z "${DOCKER_MACHINE_NAME}" ]]; then
+   DOCKER_MACHINE_NAME=${@:$#}
+fi
+
+echo "DOCKER_MACHINE_NAME=${DOCKER_MACHINE_NAME} "
 eval $(docker-machine env ${DOCKER_MACHINE_NAME} )
 
 docker-machine env ${DOCKER_MACHINE_NAME} >> ${CF_VOLUME_PATH}/env_vars_to_export
